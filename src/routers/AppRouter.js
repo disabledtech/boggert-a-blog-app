@@ -6,6 +6,7 @@ import Blog from '../components/Blog';
 import CreatePost from '../components/CreatePost';
 import Header from '../components/Header';
 import Post from '../components/Post';
+import EditPost from '../components/EditPost';
 
 export const history = createHistory()
 
@@ -16,6 +17,7 @@ const AppRouter = () => (
             <Switch>
                 <Route path="/" component={Blog} exact={true} />
                 <Route path="/create" component={CreatePost} />
+                <Route path="/posts/edit/:id" component={EditPost} />
                 <Route path="/posts/:id" component={Post} />
                 <Route component={NotFound} />
             </Switch>    

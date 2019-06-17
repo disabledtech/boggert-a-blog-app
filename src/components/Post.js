@@ -1,15 +1,26 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link } from "react-router-dom";
+import { getPost } from '../selectors/posts';
+import moment from 'moment';
+import { startRemovePost } from '../action/posts';
 
 const Post = (props) => {
 
-    // Find posts in state where id matches the id in the params given when linked to by a Route.
-    const {title, content} = useSelector(state => state.posts.find((post) => post.id === props.match.params.id));
+    const post = useSelector((state) => getPost(state, props.match.params.id));
+    const dispatch = useDispatch();
 
+    const removeExpense = (id) => {
+        dispatch(startRemovePost({ id }));
+        props.history.push('/');
+    }
     return (
         <>
-            <h1>{title}</h1>
-            <p>{content}</p>
+            <h1>{post.title}</h1>
+            <p>{post.content}</p>
+            <p>{moment(post.createdAt).format('MMMM Do, YYYY')}</p>
+            <Link to={`/posts/edit/${post.id}`}>Edit</Link>
+            <button onClick={() => removeExpense(post.id)}>X</button>
         </>
     )
 }

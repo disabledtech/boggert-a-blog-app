@@ -6,6 +6,18 @@ const postsReducer = (state = [], action) => {
             return state.filter(({ id }) => action.id !== id)
         case 'SET_POSTS':
             return action.posts;
+        case 'EDIT_EXPENSE':
+            return state.map((post) => {
+                if (post.id === action.id) {
+                    return {
+                        ...post,
+                        ...action.updates
+                    }
+
+                } else {
+                    return post;
+                }
+            });
         default:
             return state
     }

@@ -4,20 +4,18 @@
 // TODO - Set character limit
 
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { startRemoveExpense } from '../action/posts';
 import { Link } from 'react-router-dom';
 
 const Post = ({ title, content, id }) => {
-
-    const dispatch = useDispatch();
     
     return (
-        <Link to={`posts/${id}`}>
-        <h1>{title}</h1>
-        <p>{content}</p>
-        <button onClick={() => dispatch(startRemoveExpense({ id }))}>X</button>
-        </Link>
+        <>
+            <Link to={`posts/${id}`}>
+                <h1>{title}</h1>
+                <p>{content}</p>
+            </Link>
+        </>
+        
     )
 }
 

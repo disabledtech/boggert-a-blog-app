@@ -65,7 +65,7 @@ export const removePost = ((
     }
 ));
 
-export const startRemoveExpense = ({ id }) => {
+export const startRemovePost = ({ id }) => {
     return (dispatch, getState) => {
 
         return database.ref(`posts/${id}`)
@@ -76,5 +76,22 @@ export const startRemoveExpense = ({ id }) => {
             .catch((e) => {
                 console.log(e)
             })
+    }
+}
+
+export const editPost = (id, updates) => ({
+    type: 'EDIT_EXPENSE',
+    id,
+    updates
+});
+
+export const startEditPost = (id, updates) => {
+    return (dispatch, getState) => {
+        //const uid = getState().auth.uid;
+        return database.ref(`posts/${id}`)
+            .update(updates)
+            .then(() => {
+                dispatch(editPost(id, updates));
+        });
     }
 }

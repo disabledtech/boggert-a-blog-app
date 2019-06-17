@@ -6,6 +6,8 @@ import { Provider } from 'react-redux'
 import configureStore from './store/configureStore';
 import LoadingPage from './components/LoadingPage';
 import { startSetPosts } from './action/posts';
+import 'react-dates/initialize';
+import 'react-dates/lib/css/_datepicker.css';
 
 const store = configureStore();
 
@@ -14,8 +16,6 @@ const jsx = (
         <AppRouter />
     </Provider>   
 );
-
-ReactDOM.render(jsx, document.getElementById('root'));
 
 let hasRendered = false;
 

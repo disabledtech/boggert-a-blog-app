@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'
 import { startAddPost } from '../action/posts';
+import moment from "moment";
 
 const CreatePost = () => {
 
@@ -11,10 +12,11 @@ const CreatePost = () => {
 
     const addNote = (e) => {
         e.preventDefault();
-
+        const createdAt = moment.now();
         const post = {
             title,
-            content
+            content,
+            createdAt
         }
         dispatch(startAddPost(post));
         setTitle('');
