@@ -8,9 +8,7 @@ export const Login = () => {
 
     return (
         <div className="box-layout">
-            <div className="box-layout__box"> 
-                <h1 className="box-layout__title">Bloggert</h1>
-                <p>A Blog App</p>
+            <div className="box-layout__box">
                 <button className="button" onClick={() => dispatch(startLogin())}>Login with Google</button>
             </div>       
         </div>

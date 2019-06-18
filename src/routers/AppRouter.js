@@ -8,23 +8,27 @@ import Header from '../components/Header';
 import Post from '../components/Post';
 import EditPost from '../components/EditPost';
 import Login from '../components/Login';
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
 
 export const history = createHistory()
 
 const AppRouter = () => (
+
     <Router history={history}>
         <div>
             <Header />
             <Switch>
                 <Route path="/" component={Blog} exact={true} />
-                <Route path="/create" component={CreatePost} />
-                <Route path="/posts/edit/:id" component={EditPost} />
+                <PrivateRoute path="/create" component={CreatePost} />
+                <PrivateRoute path="/posts/edit/:id" component={EditPost} />
                 <Route path="/posts/:id" component={Post} />
-                <Route path="/login" component={Login} />
+                <PublicRoute path="/login" component={Login} />
                 <Route component={NotFound} />
             </Switch>    
         </div>         
     </Router>
+    
 )
 
 export default AppRouter;
