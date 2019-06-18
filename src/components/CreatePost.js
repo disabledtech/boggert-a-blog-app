@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { startAddPost } from '../action/posts';
 import moment from "moment";
 
-const CreatePost = () => {
+const CreatePost = (props) => {
 
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
@@ -19,13 +19,12 @@ const CreatePost = () => {
             createdAt
         }
         dispatch(startAddPost(post));
-        setTitle('');
-        setContent('');
+        props.history.push('/');
     }
 
     return (
         <>
-        <p>Add Post</p>
+            <p>Add Post</p>
             <form onSubmit={addNote}>
                 <input type="text" value={title} onChange={ (e) => setTitle(e.target.value) }/>
                 <textarea value={content} onChange={ (e) => setContent(e.target.value) } />

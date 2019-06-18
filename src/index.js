@@ -8,6 +8,8 @@ import LoadingPage from './components/LoadingPage';
 import { startSetPosts } from './action/posts';
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
+import { firebase } from './firebase/firebase';
+import { login, logout } from './action/auth';
 
 const store = configureStore();
 
@@ -34,6 +36,16 @@ store.dispatch(startSetPosts()).then(() => {
         history.push('/');
     }
 });
+
+firebase.auth().onAuthStateChanged((user) => {
+    if (user) {     
+        store.dispatch(login(user.uid))
+        history.push('/');
+    } else {
+        store.dispatch(logout());
+        history.push('/');
+    }
+})
 
 
 // If you want your app to work offline and load faster, you can change
