@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { startEditPost } from '../action/posts';
 import { getPost } from "../selectors/posts";
+import Header from '../components/Header';
 
 const EditPost = (props) => {
 
@@ -30,6 +31,7 @@ const EditPost = (props) => {
 
     return (
         <>
+        <Header />
         <p>Edit Post</p>
             {
                 <form onSubmit={editNote}>

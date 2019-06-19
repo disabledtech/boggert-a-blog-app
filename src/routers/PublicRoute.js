@@ -6,6 +6,7 @@ import { isAuthenticated } from "../selectors/auth";
 export const PublicRoute = ({ component: Component, ...rest }) => {
 
     const isLoggedIn = useSelector((state) => isAuthenticated(state.auth));
+    
     return (
         <Route {...rest} component={(props) => (
             !isLoggedIn ? (

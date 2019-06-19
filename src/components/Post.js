@@ -5,6 +5,7 @@ import { getPost } from '../selectors/posts';
 import moment from 'moment';
 import { startRemovePost } from '../action/posts';
 import { isAuthenticated } from "../selectors/auth";
+import Header from '../components/Header';
 
 const Post = (props) => {
 
@@ -18,17 +19,30 @@ const Post = (props) => {
     }
     return (
         <>
-            <h1>{post.title}</h1>
-            <p>{post.content}</p>
-            <p>{moment(post.createdAt).format('MMMM Do, YYYY')}</p>
-            { isLoggedIn && // Only rendeer the edit/delete button if logged in
-                <>
-                    <Link to={`/posts/edit/${post.id}`}>Edit</Link>
-                    <button onClick={() => removeExpense(post.id)}>X</button>
-                </>
-            
-            
-            }
+            <Header />
+            <div className="content-container">
+                <div className="post">
+                    <div className="post__header">
+                        <h3 className="post__title">{post.title}</h3>
+
+      
+                        <span className="post__subtitle">{moment(post.createdAt).format('MMMM Do, YYYY')}</span>
+                    </div>
+                    
+
+                    <p className="post__content">{post.content}</p>
+                    <div>
+                        { isLoggedIn && // Only render the edit/delete button if logged in
+                            <>
+                                <Link to={`/posts/edit/${post.id}`} className="button">Edit</Link>
+                                <button onClick={() => removeExpense(post.id)} className="button button--danger">Delete</button>
+                            </>            
+                        }
+                    </div>
+                </div>
+
+            </div>
+
             
         </>
     )

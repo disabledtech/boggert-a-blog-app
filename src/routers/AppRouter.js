@@ -4,7 +4,6 @@ import createHistory from 'history/createBrowserHistory';
 import NotFound from "../components/NotFound";
 import Blog from '../components/Blog';
 import CreatePost from '../components/CreatePost';
-import Header from '../components/Header';
 import Post from '../components/Post';
 import EditPost from '../components/EditPost';
 import Login from '../components/Login';
@@ -17,7 +16,6 @@ const AppRouter = () => (
 
     <Router history={history}>
         <div>
-            <Header />
             <Switch>
                 <Route path="/" component={Blog} exact={true} />
                 <PrivateRoute path="/create" component={CreatePost} />

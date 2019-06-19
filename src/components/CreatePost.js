@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'
 import { startAddPost } from '../action/posts';
 import moment from "moment";
+import Header from '../components/Header';
 
 const CreatePost = (props) => {
 
@@ -24,6 +25,7 @@ const CreatePost = (props) => {
 
     return (
         <>
+            <Header />
             <p>Add Post</p>
             <form onSubmit={addNote}>
                 <input type="text" value={title} onChange={ (e) => setTitle(e.target.value) }/>

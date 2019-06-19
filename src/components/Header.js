@@ -10,22 +10,31 @@ const Header = () => {
     const isLoggedIn = useSelector((state) => isAuthenticated(state.auth));
 
     return (
-        <>
+        <header className='header'>
+            <div className='content-container'>
+                <div className="header__content">
+                <Link to='/'  className="header__title">
+                    <h1>Bloggert - A Blog App</h1>
+                </Link>
+                <div>
+                {
+                        isLoggedIn ? (
+                            <>
+                                <Link to="/create" className="button" >Create Post</Link>
+                                <button className="button button--link" onClick={() => dispatch(startLogout())}>Logout</button>
+                            </>
+                            ) : (
+                                <Link to="/login" className="button">Login</Link>
+                        )
+                    }
+                </div>
 
-            <Link to='/'><h1>Bloggert - A Blog App</h1></Link>
-            {
-                isLoggedIn ? (
-                    <>
-                        <Link to="/create">Create</Link>
-                        <button onClick={() => dispatch(startLogout())}>Logout</button>
-                    </>
-                    ) : (
-                    <Link to="/login">Login</Link>
-                )
-            }
-            
-            
-        </>
+                </div>
+
+            </div>
+        </header>
+
+
     )
 }
 

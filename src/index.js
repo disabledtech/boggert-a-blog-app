@@ -6,13 +6,15 @@ import { Provider } from 'react-redux'
 import configureStore from './store/configureStore';
 import LoadingPage from './components/LoadingPage';
 import { startSetPosts } from './action/posts';
+import 'normalize.css/normalize.css'
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
+import './styles/styles.scss';
 import { firebase } from './firebase/firebase';
 import { login, logout } from './action/auth';
 
 const store = configureStore();
-
+ 
 const jsx = (
     <Provider store={store}>
         <AppRouter />

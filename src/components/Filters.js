@@ -19,21 +19,32 @@ const Filters = (props) => {
     };
 
     return (
-        <>
-            <input type="text" value={text} onChange={(e) => dispatch(setTextFilter(e.target.value))}/>
-            <DateRangePicker 
-                startDate={startDate}
-                startDateId="theStartDate"
-                endDate={endDate}
-                endDateId="theEndDate"
-                onDatesChange={onDatesChange}
-                focusedInput={focused}
-                onFocusChange={setFocused}
-                numberOfMonths={1}
-                isOutsideRange={() => false}
-                showClearDates={true}
-            />
-        </>
+        <div className="content-container">
+            <div className="input-group"> 
+                <div className="input-group__item">
+                    <input 
+                        type="text" 
+                        value={text} 
+                        className="text-input"
+                        onChange={(e) => dispatch(setTextFilter(e.target.value))}/>
+                </div>
+                <div className="input-group__item">
+                    <DateRangePicker 
+                        startDate={startDate}
+                        startDateId="theStartDate"
+                        endDate={endDate}
+                        endDateId="theEndDate"
+                        onDatesChange={onDatesChange}
+                        focusedInput={focused}
+                        onFocusChange={setFocused}
+                        numberOfMonths={1}
+                        isOutsideRange={() => false}
+                        showClearDates={true}
+                    />
+                </div>
+
+            </div>
+        </div>
     )
 }
 

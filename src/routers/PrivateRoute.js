@@ -9,7 +9,7 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
     
     return (
         <Route {...rest} component={(props) => (
-            !isLoggedIn ? (
+            isLoggedIn ? (
                 <div>
                     <Component {...props} />
                 </div>
