@@ -29,15 +29,17 @@ const Post = ({ title, content, createdAt, id }) => {
     return (
         <>
             <div className="content-container">
-                <Link to={`posts/${id}`}>
-                    <div className="post post--preview">
+                <div className="post post--preview">
+                <Link to={`posts/${id}`} className="post--preview">                   
                         <div className="post__header">
                             <h3 className="post__title">{title}</h3>
                             <span className="post__subtitle">{moment(createdAt).format('MMMM Do, YYYY')}</span>
                         </div>
                         { trimmedContent(content) }
-                    </div>
-                </Link>
+                    </Link>
+                </div>
+
+                
             </div>
             
         </>

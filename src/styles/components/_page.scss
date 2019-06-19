@@ -1,0 +1,13 @@
+.page-header {
+    background: $off-indigo;
+    margin-bottom: $l-size;
+    padding: $l-size 0;
+}
+
+.page-header__title {
+    font-weight: 200;
+    margin: 0;
+    span {
+        font-weight: 700;
+    }
+}

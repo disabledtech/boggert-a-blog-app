@@ -20,16 +20,16 @@ const Post = (props) => {
     return (
         <>
             <Header />
+            <div className="page-header">
+                <div className="content-container">
+                    <div className="post__header">
+                        <h2 className="post__title">{post.title}</h2>
+                         <span className="post__subtitle">{moment(post.createdAt).format('MMMM Do, YYYY')}</span>
+                    </div>
+                </div> 
+            </div>
             <div className="content-container">
                 <div className="post">
-                    <div className="post__header">
-                        <h3 className="post__title">{post.title}</h3>
-
-      
-                        <span className="post__subtitle">{moment(post.createdAt).format('MMMM Do, YYYY')}</span>
-                    </div>
-                    
-
                     <p className="post__content">{post.content}</p>
                     <div>
                         { isLoggedIn && // Only render the edit/delete button if logged in

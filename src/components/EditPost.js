@@ -10,16 +10,24 @@ const EditPost = (props) => {
     const post = useSelector((state) => getPost(state, props.match.params.id));
     const dispatch = useDispatch();
 
-    const onSubmit = (id, post) => {
-        dispatch(startEditPost(id, post));
+    const onSubmit = (editPost) => {
+        dispatch(startEditPost(post.id, editPost));
         props.history.push('/');
     }
 
     return (
         <>
             <Header />
-            <p>Edit Post</p>
-            <PostForm onSubmit={onSubmit} post={post} />
+            <div className="page-header">
+                <div className="content-container">
+                    <h2 className="page-header__title">Edit Post</h2>
+                </div> 
+            </div>
+
+            <div className="content-container">
+                <PostForm onSubmit={onSubmit} post={post} />
+            </div>
+            
         </>
     )
 }

@@ -7,11 +7,11 @@ const PostList = () => {
     const posts = useSelector(state => selectPosts(state.posts, state.filters));
 
     return (
-        <>
+        <div>
         {
-            posts.length > 0 ? posts.map((post, i) => (<PostPreview {...post} key={i} />)) : <p>No posts here! Check back later or change the filter.</p>
+            posts.length > 0 ? posts.map((post, i) => (<PostPreview {...post} key={i} />)) : <p></p>
         }
-        </>
+        </div>
 
     )
 }

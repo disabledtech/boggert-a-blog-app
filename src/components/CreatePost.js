@@ -16,8 +16,15 @@ const CreatePost = (props) => {
     return (
         <>
             <Header />
-            <p>Add Post</p>
-            <PostForm onSubmit={onSubmit} />
+            <div className="page-header">
+                <div className="content-container">
+                    <h2 className="page-header__title">Create Post</h2>
+                </div> 
+            </div>
+            <div className="content-container">
+                <PostForm onSubmit={onSubmit} />
+            </div>
+            
         </>
     )
 }
