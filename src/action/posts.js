@@ -48,7 +48,6 @@ export const startSetPosts = () => {
                         ...child.val()
                 });
             });
-                console.log(posts);
                 dispatch(setPosts(posts));
         });
     };
